@@ -9,7 +9,7 @@ def brutforce(words: List[str]):
             if word1 == word2:
                 continue
             min_len = max_length
-            max_len = min(len(word2), len(word2))
+            max_len = min(len(word1), len(word2)) # была опечатка min(len(word2), len(word2))
             for pref in range(max_len, min_len, -1):
                 if word2.endswith(word1[:pref]):
                     max_length = pref
@@ -41,6 +41,7 @@ def fast(words: List[str]):
                         continue
                     answer_length = i
                     answer = [word1, word2]
+                    substr_found = True # добавила строку
                     break
             if substr_found:
                 break
